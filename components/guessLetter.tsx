@@ -3,7 +3,7 @@
 import { morseLetter } from '@/lib/morse'
 import { useEffect, useState } from 'react'
 
-export default function guessLetter() {
+export default function GuessLetter() {
   
   const [client, setClient] = useState(false)
   const [rand, setRand] = useState(Math.floor(Math.random() * 26));
