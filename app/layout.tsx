@@ -3,6 +3,7 @@ import { Inter, Rambla } from "next/font/google";
 import "./globals.css";
 import SideBar from "@/components/side";
 import Nav from "@/components/nav";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Rambla({ subsets: ["latin"], weight: ["400"] });
 
@@ -19,6 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Analytics />
       <body className={inter.className + ' bg-black/90'}>
         <main className="h-dvh"> 
 
