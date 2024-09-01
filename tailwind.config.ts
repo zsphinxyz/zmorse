@@ -13,6 +13,25 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      // keyframes: {
+      //   ani2: {
+      //     '0%': {objectPosition: '0px'},
+      //     '100%': {objectPosition: `-${150*2}px`},
+      //   },
+      //   ani3: {
+      //     '0%': {objectPosition: '0px'},
+      //     '100%': {objectPosition: `-${150*3}px`},
+      //   },
+      //   ani4: {
+      //     '0%': {objectPosition: '0px'},
+      //     '100%': {objectPosition: `-${150*4}px`},
+      //   },
+      //   ani5: {
+      //     '0%': {objectPosition: '0px'},
+      //     '100%': {objectPosition: `-${150*5}px`},
+      //   },
+      // },
+
     },
   },
   plugins: [],

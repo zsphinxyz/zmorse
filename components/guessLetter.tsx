@@ -1,35 +1,40 @@
 'use client'
 
-import { morseLetter } from '@/lib/morse'
+import { morseLetter, letter_imgs } from '@/lib/morse'
+import Image from 'next/image';
 import { useEffect, useState } from 'react'
+import Hint from './hint';
 
 export default function GuessLetter() {
-  
+
   const [client, setClient] = useState(false)
   const [rand, setRand] = useState(Math.floor(Math.random() * 26));
-  const [randLetter, randMorse] = Object.entries(morseLetter)[rand]
+  const [randLetter, randMorse] = Object.entries(morseLetter)[rand] as string[];
   const [userAns, setUserAns] = useState('')
   const [isCorrect, setCorrect] = useState<null | boolean>(null)
+  const [showHint, setShowHint] = useState(false)
 
-  useEffect(()=>{
+
+  useEffect(() => {
     setClient(true);
   }, [])
 
-  function checkAns(e:any) {
+  function checkAns(e: any) {
     e.preventDefault();
-    if(userAns != '') {
-      if(userAns == randLetter){
+    if (userAns != '') {
+      if (userAns == randLetter) {
         setCorrect(true)
-      } else{
+      } else {
         setCorrect(false)
       }
     }
-  } 
+  }
 
   function nextQuest() {
     setRand(Math.floor(Math.random() * 26));
     setUserAns('');
-    setCorrect(null)
+    setCorrect(null);
+    setShowHint(false)
   }
 
   return (
@@ -43,19 +48,21 @@ export default function GuessLetter() {
 
           <div className="text-5xl font-extrabold bg-white/10 size-32 rounded-lg grid place-content-center border border-white/15 hover:bg-white/15 transition">
             {/* {randLetter} */}
-            <input autoFocus style={{background: isCorrect === null ? 'transparent' : isCorrect == false ? '#ff000033' : '#00ff0033'  }} type="text" name="userAnsLetter" id="userAnsLetter" className='w-full h-32 block text-center capitalize' value={userAns} onChange={(e)=>setUserAns(e.target.value && e.target.value[e.target.value.length-1].toUpperCase())} />
+            <input autoFocus style={{ background: isCorrect === null ? 'transparent' : isCorrect == false ? '#ff000033' : '#00ff0033' }} type="text" name="userAnsLetter" id="userAnsLetter" className='w-full h-32 block text-center capitalize' value={userAns} onChange={(e) => setUserAns(e.target.value && e.target.value[e.target.value.length - 1].toUpperCase())} />
           </div>
         </div>
 
-      {
-        isCorrect ? 
-          <button className='bg-white/90 hover:bg-white p-2 rounded-sm text-black' onClick={nextQuest}>Next ▶</button> :
-          <button type="submit" className='bg-white/90 font-medium hover:bg-white text-black p-2 rounded-sm disabled:opacity-50 disabled:cursor-not-allowed'>Submit</button>
-      }
+        {
+          isCorrect ?
+            <button className='bg-white/90 hover:bg-white p-2 rounded-sm text-black' onClick={nextQuest}>Next ▶</button> :
+            <button type="submit" className='bg-white/90 font-medium hover:bg-white text-black p-2 rounded-sm disabled:opacity-50 disabled:cursor-not-allowed'>Submit</button>
+        }
 
       </form>
 
-
+      {client &&
+        <Hint rand={rand} hint={showHint} setHint={setShowHint} reverse={false} />
+      }
 
     </section>
   )

@@ -18,12 +18,12 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
+  /* background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--background-start-rgb)); */
 }
 
 @layer utilities {
@@ -31,3 +31,40 @@ body {
     text-wrap: balance;
   }
 }
+
+@keyframes ani2 {
+  from {
+    object-position: 0px;
+  }
+  to {
+    object-position: calc(-150px * 2);
+  }
+}
+
+@keyframes ani3 {
+  from {
+    object-position: 0px;
+  }
+  to {
+    object-position: calc(-150px * 3);
+  }
+}
+
+@keyframes ani4 {
+  from {
+    object-position: 0px;
+  }
+  to {
+    object-position: calc(-150px * 4);
+  }
+}
+
+@keyframes ani5 {
+  from {
+    object-position: 0px;
+  }
+  to {
+    object-position: calc(-150px * 5);
+  }
+}
+

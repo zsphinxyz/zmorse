@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Rambla } from "next/font/google";
 import "./globals.css";
-import Link from "next/link";
 import SideBar from "@/components/side";
+import Nav from "@/components/nav";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Rambla({ subsets: ["latin"], weight: ["400"] });
 
 export const metadata: Metadata = {
   title: "Morse Code",
@@ -19,10 +19,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <main className="flex gap-2">
-          <SideBar />
-          <div className="basis-full">{children}</div>
+      <body className={inter.className + ' bg-black/90'}>
+        <main className="h-dvh"> 
+
+          <Nav />
+
+          <div className="flex min-h-[calc(100dvh-64px)]">
+            <SideBar />
+            <div className="basis-full">{children}</div>
+          </div>
+
         </main>
       </body>
     </html>
