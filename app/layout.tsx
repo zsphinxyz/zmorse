@@ -8,19 +8,20 @@ import { Analytics } from "@vercel/analytics/react";
 const inter = Rambla({ subsets: ["latin"], weight: ["400"] });
 
 export const metadata: Metadata = {
+  title: "Morse Code",
+  description: "Play around with Morse Code.",
   generator: 'Next.js',
   applicationName: 'Next.js',
   referrer: 'origin-when-cross-origin',
   keywords: ['morse', 'zmorse', 'MorseCode'],
   creator: 'zsphinx',
-  title: "Morse Code",
-  description: "Play around with Morse Code.",
   openGraph: {
     title: 'zmorse',
     description: 'Play around with Morse Code',
     url: 'https://zmorse.vercel.app',
     siteName: 'zmorse',
-    images: 'https://zmorse.vercel.app/thumbnail.png'
+    images: 'https://zmorse.vercel.app/thumbnail.png',
+    type: 'website',
   }
 };
 
