@@ -22,6 +22,9 @@ export const metadata: Metadata = {
     siteName: 'zmorse',
     images: 'https://zmorse.vercel.app/thumbnail.png',
     type: 'website',
+  },
+  other: {
+    ["fb:app_id"]: "678948196775372",
   }
 };
 
