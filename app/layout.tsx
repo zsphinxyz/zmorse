@@ -20,7 +20,16 @@ export const metadata: Metadata = {
     description: 'Play around with Morse Code',
     url: 'https://zmorse.vercel.app',
     siteName: 'zmorse',
-    images: 'https://zmorse.vercel.app/thumbnail.png',
+    // images: 'https://zmorse.vercel.app/thumbnail.png',
+    images: [
+      {
+        url: 'https://zmorse.vercel.app/thumbnail.png',
+        width: 972,
+        height: 989,
+        alt: 'Z_morse, Learn Morse Code',
+        
+      }
+    ],
     type: 'website',
   },
   other: {
