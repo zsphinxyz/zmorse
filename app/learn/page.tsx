@@ -1,9 +1,8 @@
 'use client'
 
-import Image from "next/image";
 import { all, letter_imgs } from '@/lib/morse'
 import { motion } from "framer-motion";
-import { Suspense, useState } from "react";
+import { Suspense } from "react";
 
 
 export default function Learn() {
