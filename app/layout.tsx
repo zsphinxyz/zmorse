@@ -27,13 +27,13 @@ export const metadata: Metadata = {
         width: 972,
         height: 989,
         alt: 'Z_morse, Learn Morse Code',
-        
+
       }
     ],
     type: 'website',
   },
   other: {
-    ["fb:app_id"]: "678948196775372",
+    ["fb:app_id"]: "1719215081802374",
   }
 };
 

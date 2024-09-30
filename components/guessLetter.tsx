@@ -1,7 +1,6 @@
 'use client'
 
-import { morseLetter, letter_imgs } from '@/lib/morse'
-import Image from 'next/image';
+import { morseLetter } from '@/lib/morse'
 import { useEffect, useState } from 'react'
 import Hint from './hint';
 
