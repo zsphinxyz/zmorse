@@ -33,6 +33,7 @@ export const metadata: Metadata = {
   },
   other: {
     ["fb:app_id"]: "1719215081802374",
+    ["google-site-verification"]: "ce41r4Xfw_7tSNJDGSIs-BYCCylzs0MbHdO0s_QDxAg",
   }
 };
 
@@ -61,3 +62,4 @@ export default function RootLayout({
     </html>
   );
 }
+
