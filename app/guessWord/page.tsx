@@ -2,6 +2,7 @@
 import Footer from "@/components/Footer"
 import { morseLetter } from "@/lib/morse"
 import { revalidatePath } from "next/cache"
+import { redirect } from "next/navigation"
 // https://random-word-api.herokuapp.com/word
 
 export default async function GuessWord({searchParams}: {searchParams: {guess: string}}) {
@@ -11,7 +12,7 @@ export default async function GuessWord({searchParams}: {searchParams: {guess: s
     return word.split('').map(letter => morseLetter[letter.toUpperCase()])
   }
   
-  const res = await fetch('https://random-word.ryanrk.com/api/en/word/random?length=5')
+  const res = await fetch('https://random-word.ryanrk.com/api/en/word/random?length=5', {cache: 'force-cache'})
   const word = await res.json().then(data => data[0])
 
   const guessWord = searchParams.guess
@@ -26,7 +27,13 @@ export default async function GuessWord({searchParams}: {searchParams: {guess: s
   async function handleNextWord() {
     'use server'
     revalidatePath('/guessWord')
-    // redirect('/guessWord')
+    redirect('/guessWord')
+  }
+
+  async function skip() {
+    'use server'
+    revalidatePath('/guessWord')
+    redirect('/guessWord')
   }
 
   return (
@@ -41,7 +48,8 @@ export default async function GuessWord({searchParams}: {searchParams: {guess: s
         </h1>
       </div>
 
-      { isCorrect &&
+      { 
+      isCorrect &&
         <div className="">
           {
             word.split('').map((letter: string, index: number) => (
@@ -52,9 +60,24 @@ export default async function GuessWord({searchParams}: {searchParams: {guess: s
       }
 
       {
+        !isCorrect &&
+        <div className="">
+          {
+            guessWord?.split('').map((letter:string, index:number) => {
+              const isLetter = letter.toLocaleLowerCase() === word.toLowerCase().split('')[index]
+              console.log(isLetter, letter, word.toLowerCase().split('')[index])
+              return(
+                <span key={index} className={`inline-block m-1 ${isLetter ? 'bg-green-500' : 'bg-black/40'} text-sm sm:text-lg lg:text-xl px-2 py-1 font-mono rounded-md uppercase`}>{letter}</span>
+              )
+            })
+          }
+        </div>
+      }
+
+      {
       !isCorrect &&
       <form className="flex flex-col gap-2" autoComplete="off">
-        <input type="text" name="guess" id="guess" className="text-black px-2 py-1 rounded-sm uppercase mb-1" placeholder="Guess the word" />
+        <input type="text" required name="guess" id="guess" className="text-black px-2 py-1 rounded-sm uppercase mb-1" placeholder="Guess the word" />
         <button type="submit" className="bg-white/90 font-medium hover:bg-white text-black p-2 rounded-sm disabled:opacity-50 disabled:cursor-not-allowed">Submit</button>
       </form>
       }
@@ -65,6 +88,10 @@ export default async function GuessWord({searchParams}: {searchParams: {guess: s
        <button className="bg-white/90 font-medium hover:bg-white text-black p-2 rounded-sm disabled:opacity-50 disabled:cursor-not-allowed">Next Word ▶</button>
      </form>
      }
+
+     <form action={skip}>
+      <button className="mt-2 text-blue-400 underline">Skip</button>
+     </form>
 
      
     <Footer />
