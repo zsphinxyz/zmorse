@@ -52,9 +52,11 @@ export default function RootLayout({
 
           <Nav />
 
-          <div className="flex min-h-[calc(100dvh-64px)]">
+          <div className="flex min-h-[calc(100dvh-64px)] relative">
             <SideBar />
-            <div className="basis-full">{children}</div>
+            <div className="basis-full">
+              {children}
+            </div>
           </div>
 
         </main>

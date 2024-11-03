@@ -1,5 +1,6 @@
 'use client'
 
+import Footer from '@/components/Footer';
 import { all, letter_imgs } from '@/lib/morse'
 import { motion } from "framer-motion";
 import { Suspense } from "react";
@@ -41,6 +42,8 @@ export default function Learn() {
           ))
         }
       </section>
+      
+      <Footer />
     </section>
   )
 }

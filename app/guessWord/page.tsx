@@ -1,7 +1,7 @@
 
+import Footer from "@/components/Footer"
 import { morseLetter } from "@/lib/morse"
-import { revalidatePath, revalidateTag } from "next/cache"
-import { redirect } from "next/navigation"
+import { revalidatePath } from "next/cache"
 // https://random-word-api.herokuapp.com/word
 
 export default async function GuessWord({searchParams}: {searchParams: {guess: string}}) {
@@ -65,6 +65,9 @@ export default async function GuessWord({searchParams}: {searchParams: {guess: s
        <button className="bg-white/90 font-medium hover:bg-white text-black p-2 rounded-sm disabled:opacity-50 disabled:cursor-not-allowed">Next Word ▶</button>
      </form>
      }
+
+     
+    <Footer />
      
     </main>
   )

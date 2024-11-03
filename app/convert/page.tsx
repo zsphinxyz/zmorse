@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useState } from "react"
 import {all, all_rev} from '@/lib/morse'
+import Footer from "@/components/Footer";
 
 export default function Convert() {
   const [words, setWords] = useState('');
@@ -35,6 +36,8 @@ export default function Convert() {
       <div className="bg-[steelblue] basis-1/2 rounded-lg ">
         <textarea placeholder="Morse Code..." spellCheck="false" className="h-full w-full bg-transparent text-xl p-2 font-mono resize-none" onChange={(e)=>setMorse( e.target.value.replace(/[^-. ]/g,'')?.toString())} value={morse}></textarea>
       </div>
+      
+      <Footer />
 
 
     </section>
