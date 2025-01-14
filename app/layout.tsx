@@ -4,6 +4,7 @@ import "./globals.css";
 import SideBar from "@/components/side";
 import Nav from "@/components/nav";
 import { Analytics } from "@vercel/analytics/react";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const inter = Rambla({ subsets: ["latin"], weight: ["400"] });
 
@@ -46,10 +47,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <meta name="og:image" content="/thumbnail.png" />
+
+      <GoogleAnalytics gaId="G-75KEW87W9H" />
+
+      {/* <!-- Google tag (gtag.js) --> */}
+      {/* <Script async src="https://www.googletagmanager.com/gtag/js?id=G-75KEW87W9H"></Script>
+      <Script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-75KEW87W9H');
+      </Script> */}
+
       <Analytics />
       <body className={inter.className + ' bg-black/90'}>
         <main className="h-dvh"> 
-
           <Nav />
 
           <div className="flex min-h-[calc(100dvh-64px)] relative">

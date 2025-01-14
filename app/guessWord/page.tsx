@@ -65,7 +65,6 @@ export default async function GuessWord({searchParams}: {searchParams: {guess: s
           {
             guessWord?.split('').map((letter:string, index:number) => {
               const isLetter = letter.toLocaleLowerCase() === word.toLowerCase().split('')[index]
-              console.log(isLetter, letter, word.toLowerCase().split('')[index])
               return(
                 <span key={index} className={`inline-block m-1 ${isLetter ? 'bg-green-500' : 'bg-black/40'} text-sm sm:text-lg lg:text-xl px-2 py-1 font-mono rounded-md uppercase`}>{letter}</span>
               )
