@@ -73,7 +73,7 @@ arr.map( (i:any) => {
  Object.defineProperty(ob, i[0], {value: i[1]})
 })
 
-export const all_rev = ob
+export const all_rev = ob     // revert values to keys and keys to values
 
 export const letter_imgs = [
   { id: 0, img: 'Archery.png', steps: 3 },

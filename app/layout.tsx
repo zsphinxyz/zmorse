@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Rambla } from "next/font/google";
+import { Rambla } from "next/font/google";
 import "./globals.css";
 import SideBar from "@/components/side";
 import Nav from "@/components/nav";
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   other: {
     ["fb:app_id"]: "1719215081802374",
-    ["google-site-verification"]: "ce41r4Xfw_7tSNJDGSIs-BYCCylzs0MbHdO0s_QDxAg",
+    ["google-site-verification"]: "ce41r4Xfw_7tSNJDGSIs-BYCCylzs0MbHdO0s_QDxAg", 
   }
 };
 
@@ -46,7 +46,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <meta name="og:image" content="/thumbnail.png" />
 
       <GoogleAnalytics gaId="G-75KEW87W9H" />
 

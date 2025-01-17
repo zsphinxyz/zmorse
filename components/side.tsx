@@ -2,16 +2,22 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { TbLetterA, TbLetterR } from "react-icons/tb";
+import { TbLetterA } from "react-icons/tb";
 import { FaRegDotCircle, FaExchangeAlt } from "react-icons/fa";
 import { GiGraduateCap } from "react-icons/gi";
 import { BsAlphabetUppercase } from "react-icons/bs";
 
 const links = [
   {
+    icon: <GiGraduateCap />,
+    title: "Learn Morse Code",
+    link: '/',
+    bg: '#ef4136',
+  },
+  {
     icon: <TbLetterA />,
     title: "Guess the Letter",
-    link: '/',
+    link: '/guessLetter',
     bg: '#334155',
   }, {
     icon: <FaRegDotCircle />,
@@ -25,12 +31,7 @@ const links = [
     link: '/guessWord',
     bg: '#553054',
   },
-  {
-    icon: <GiGraduateCap />,
-    title: "Learn Morse Code",
-    link: '/learn',
-    bg: '#ef4136',
-  }, {
+ {
     icon: <FaExchangeAlt />,
     title: "Converter",
     link: '/convert',

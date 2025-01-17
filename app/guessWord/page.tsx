@@ -1,4 +1,3 @@
-
 import Footer from "@/components/Footer"
 import { morseLetter } from "@/lib/morse"
 import { revalidatePath } from "next/cache"
