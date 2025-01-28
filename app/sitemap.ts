@@ -1,0 +1,42 @@
+import { MetadataRoute } from 'next'
+ 
+export default function sitemap(): MetadataRoute.Sitemap {
+  return [
+    {
+      url: 'https://zmorse.vercel.app',
+      lastModified: new Date('18,Jan,2025'),
+      changeFrequency: 'yearly',
+      priority: 1,
+    },
+    {
+      url: 'https://zmorse.vercel.app/learn',
+      lastModified: new Date('18,Jan,2025'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: 'https://zmorse.vercel.app/guessMorse',
+      lastModified: new Date('18,Jan,2025'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: 'https://zmorse.vercel.app/guessLetter',
+      lastModified: new Date('18,Jan,2025'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: 'https://zmorse.vercel.app/guessWord',
+      lastModified: new Date('18,Jan,2025'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: 'https://zmorse.vercel.app/converter',
+      lastModified: new Date('18,Jan,2025'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+  ]
+}
