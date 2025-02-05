@@ -35,7 +35,7 @@ const links = [
     icon: <FaExchangeAlt />,
     title: "Converter",
     link: '/convert',
-    bg: 'steelblue'
+    bg: 'darkslateblue'
   }
 ]
 

@@ -42,17 +42,17 @@ export default function Convert() {
           all[word.toUpperCase()]
         )).toLocaleString().replaceAll(',', ' ')
       )
-  }, [words, morse])
+  }, [words, morse, reverse])
 
   return (
     <section className="flex h-full gap-2 flex-col p-2 relative text-green-50">
       <h1 className="font-bold text-3xl text-center my-2 underline underline-offset-4 mb-5">Converter</h1>
-      <div className="bg-[steelblue] basis-1/2 rounded-lg ">
-        <textarea placeholder="Text..." spellCheck="false" className="h-full w-full bg-transparent text-2xl p-2 font-mono resize-none capitalize" onClick={() => setReverse(false)} onChange={(e) => setWords(e.target.value)} value={words}></textarea>
+      <div className="bg-[darkslateblue] basis-1/2 rounded-lg ">
+        <textarea placeholder="Text..." spellCheck="false" className="h-full w-full bg-transparent text-2xl p-2 font-mono resize-none uppercase" onFocus={() => setReverse(false)} onChange={(e) => setWords(e.target.value.replaceAll(' ',''))} value={words}></textarea>
       </div>
 
-      <div className="bg-[steelblue] basis-1/2 rounded-lg ">
-        <textarea placeholder="Morse Code..." spellCheck="false" className="h-full w-full bg-transparent text-xl p-2 font-mono resize-none" onClick={() => setReverse(true)} onChange={(e) => setMorse(e.target.value.replace(/[^-. ]/g, '')?.toString())} value={morse}></textarea>
+      <div className="bg-[darkslateblue] basis-1/2 rounded-lg ">
+        <textarea placeholder="Morse Code..." spellCheck="false" className="h-full w-full bg-transparent text-xl p-2 font-mono resize-none" onFocus={() => setReverse(true)} onChange={(e) => setMorse(e.target.value.replace(/[^-. ]/g, '')?.toString())} value={morse}></textarea>
       </div>
 
       <Footer />
