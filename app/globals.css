@@ -6,6 +6,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --animation-speed: 1.5s;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -31,6 +32,22 @@ body {
     text-wrap: balance;
   }
 }
+
+@layer components {
+  .ani2{
+    animation: ani2 var(--animation-speed) steps(2) infinite;
+  }
+  .ani3{
+    animation: ani3 var(--animation-speed) steps(3) infinite;
+  }
+  .ani4{
+    animation: ani4 var(--animation-speed) steps(4) infinite;
+  }
+  .ani5{
+    animation: ani5 var(--animation-speed) steps(5) infinite;
+  }
+}
+
 
 @keyframes ani2 {
   from {

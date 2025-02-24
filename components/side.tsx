@@ -53,7 +53,7 @@ export default function SideBar() {
           > 
             {link.icon}
             <span className="hidden sm:block">{link.title}</span>
-            <span className="hidden group-hover:flex transition delay-1000 items-center sm:scale-0 absolute h-full pl-1 left-[calc(100%+10px)] w-24 rounded-md bg-neutral-200 text-black text-xs font-medium top-1/2 -translate-y-1/2 ">
+            <span className="hidden group-hover:flex transition delay-1000 items-center sm:scale-0 absolute h-full px-1 left-[calc(100%+5px)] w-max rounded-md bg-neutral-200 text-black text-xs font-medium top-1/2 -translate-y-1/2 ">
               {link.title}
             </span>
           </Link>

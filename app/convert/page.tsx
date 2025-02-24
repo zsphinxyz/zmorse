@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react"
 import { all, all_rev } from '@/lib/morse'
 import Footer from "@/components/Footer";
+import { RxResume } from "react-icons/rx";
 
 export default function Convert() {
   const [words, setWords] = useState('');
@@ -50,6 +51,10 @@ export default function Convert() {
       <div className="bg-[darkslateblue] basis-1/2 rounded-lg ">
         <textarea placeholder="Text..." spellCheck="false" className="h-full w-full bg-transparent text-2xl p-2 font-mono resize-none uppercase" onFocus={() => setReverse(false)} onChange={(e) => setWords(e.target.value.replaceAll(' ',''))} value={words}></textarea>
       </div>
+
+      {/* <button className="size-10 mx-auto bg-green-300 rounded-full -mb-5 z-10 flex items-center justify-center">
+        <RxResume />
+      </button> */}
 
       <div className="bg-[darkslateblue] basis-1/2 rounded-lg ">
         <textarea placeholder="Morse Code..." spellCheck="false" className="h-full w-full bg-transparent text-xl p-2 font-mono resize-none" onFocus={() => setReverse(true)} onChange={(e) => setMorse(e.target.value.replace(/[^-. ]/g, '')?.toString())} value={morse}></textarea>
