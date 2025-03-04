@@ -26,14 +26,14 @@ const links = [
     title: "Guess the Morse",
     link: '/guessMorse',
     bg: '#425554',
-  }, 
+  },
   {
     icon: <BsAlphabetUppercase />,
     title: "Guess the Word",
     link: '/guessWord',
     bg: '#553054',
   },
- {
+  {
     icon: <FaExchangeAlt />,
     title: "Converter",
     link: '/convert',
@@ -46,32 +46,36 @@ export default function SideBar() {
   const path = usePathname();
   return (
 
-    <aside className="basis-1/3 flex sticky top-0 h-dvh flex-col gap-3 pt-5 shrink-0 max-w-14 sm:max-w-72 bg-[#313131] px-1 sm:px-3 z-50">
-      {
-        links.map(link => (
-          <Link title={link.title} key={link.link} href={link.link} 
-            className="flex hover:scale-110 sm:hover:scale-105 transition group justify-center py-2 rounded-md items-center sm:justify-start sm:pl-2 gap-2 relative "
-            style={{background: path == link.link ? link.bg: '#0a0a0a'}}
-          > 
-            {link.icon}
-            <span className="hidden sm:block">{link.title}</span>
-            <span className="hidden group-hover:flex transition delay-1000 items-center sm:scale-0 absolute h-full px-1 left-[calc(100%+5px)] w-max rounded-md bg-neutral-200 text-black text-xs font-medium top-1/2 -translate-y-1/2 ">
-              {link.title}
-            </span>
-          </Link>
-        ))
-      }
+    <aside className="basis-1/3 relative shrink-0 max-w-14 sm:max-w-72 bg-[#313131] px-1 sm:px-3 z-50">
 
-      <Link title="Features" href="/features"
-            className="flex mt-auto mb-20 hover:scale-110 sm:hover:scale-105 transition group justify-center py-2 rounded-md items-center sm:justify-start sm:pl-2 gap-2 "
-            style={{background: path == "/features" ? '#202020' : '#0a0a0a'}}
-          > 
-            <FaScroll />
-            <span className="hidden sm:block">Features</span>
-            <span className="hidden group-hover:flex transition delay-1000 items-center sm:scale-0 absolute h-full px-1 left-[calc(100%+5px)] w-max rounded-md bg-neutral-200 text-black text-xs font-medium top-1/2 -translate-y-1/2 ">
-              Features
-            </span>
-          </Link>
+      <div className="flex flex-col mt-5 min-h-[calc(100dvh-84px)] gap-3 shrink-0 sticky top-0 bottom-0 w-full">
+        {
+          links.map(link => (
+            <Link title={link.title} key={link.link} href={link.link}
+              className="flex hover:scale-110 sm:hover:scale-105 transition group justify-center py-2 rounded-md items-center sm:justify-start sm:pl-2 gap-2 relative "
+              style={{ background: path == link.link ? link.bg : '#0a0a0a' }}
+            >
+              {link.icon}
+              <span className="hidden sm:block">{link.title}</span>
+              <span className="hidden group-hover:flex transition delay-1000 items-center sm:scale-0 absolute h-full px-1 left-[calc(100%+5px)] w-max rounded-md bg-neutral-200 text-black text-xs font-medium top-1/2 -translate-y-1/2 ">
+                {link.title}
+              </span>
+            </Link>
+          ))
+        }
+
+        <Link title="Features" href="/features"
+          className="flex mt-auto mb-5 hover:scale-110 sm:hover:scale-105 transition group justify-center py-2 rounded-md items-center sm:justify-start sm:pl-2 gap-2 "
+          style={{ background: path == "/features" ? '#202020' : '#0a0a0a' }}
+        >
+          <FaScroll />
+          <span className="hidden sm:block">Features</span>
+          <span className="hidden group-hover:flex transition delay-1000 items-center sm:scale-0 absolute h-full px-1 left-[calc(100%+5px)] w-max rounded-md bg-neutral-200 text-black text-xs font-medium top-1/2 -translate-y-1/2 ">
+            Features
+          </span>
+        </Link>
+      </div>
+
     </aside>
 
   )
