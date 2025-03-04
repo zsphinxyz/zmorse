@@ -3,9 +3,11 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { TbLetterA } from "react-icons/tb";
-import { FaRegDotCircle, FaExchangeAlt } from "react-icons/fa";
+import { FaRegDotCircle, FaExchangeAlt, FaScroll } from "react-icons/fa";
 import { GiGraduateCap } from "react-icons/gi";
 import { BsAlphabetUppercase } from "react-icons/bs";
+import { BiHistory } from "react-icons/bi";
+import { LiaSith } from "react-icons/lia";
 
 const links = [
   {
@@ -44,7 +46,7 @@ export default function SideBar() {
   const path = usePathname();
   return (
 
-    <aside className="basis-1/3 flex flex-col gap-3 pt-5 shrink-0 max-w-14 sm:max-w-72 bg-[#313131] px-1 sm:px-3 z-50">
+    <aside className="basis-1/3 flex sticky top-0 h-dvh flex-col gap-3 pt-5 shrink-0 max-w-14 sm:max-w-72 bg-[#313131] px-1 sm:px-3 z-50">
       {
         links.map(link => (
           <Link title={link.title} key={link.link} href={link.link} 
@@ -59,6 +61,17 @@ export default function SideBar() {
           </Link>
         ))
       }
+
+      <Link title="Features" href="/features"
+            className="flex mt-auto mb-20 hover:scale-110 sm:hover:scale-105 transition group justify-center py-2 rounded-md items-center sm:justify-start sm:pl-2 gap-2 "
+            style={{background: path == "/features" ? '#202020' : '#0a0a0a'}}
+          > 
+            <FaScroll />
+            <span className="hidden sm:block">Features</span>
+            <span className="hidden group-hover:flex transition delay-1000 items-center sm:scale-0 absolute h-full px-1 left-[calc(100%+5px)] w-max rounded-md bg-neutral-200 text-black text-xs font-medium top-1/2 -translate-y-1/2 ">
+              Features
+            </span>
+          </Link>
     </aside>
 
   )

@@ -31,6 +31,9 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+  .link {
+    @apply text-blue-400 underline;
+  }
 }
 
 @layer components {
@@ -45,6 +48,10 @@ body {
   }
   .ani5{
     animation: ani5 var(--animation-speed) steps(5) infinite;
+  }
+
+  .img-outline {
+    @apply outline outline-2 outline-green-500 outline-offset-2;
   }
 }
 

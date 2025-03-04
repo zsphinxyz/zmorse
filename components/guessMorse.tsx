@@ -42,6 +42,7 @@ export default function GuessMorse() {
     <section className="flex gap-3 flex-col items-center justify-center">
       <h1 className="font-bold text-3xl text-center my-2 underline underline-offset-4 mb-5">Guess the Morse Code</h1>
 
+      {/* Key Remapping  */}
       {/* <div className="w-full flex justify-end ">
        <label htmlFor="keymap" className='mr-2'>Key Map</label> 
         <select name="keymap" id="keymap" className="text-black font-mono font-medium" onChange={(e)=>setKeyMap(e.target.value)}>

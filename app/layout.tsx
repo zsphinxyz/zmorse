@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   other: {
     ["fb:app_id"]: "1719215081802374",
-    ["google-site-verification"]: "ce41r4Xfw_7tSNJDGSIs-BYCCylzs0MbHdO0s_QDxAg", 
+    ["google-site-verification"]: "ce41r4Xfw_7tSNJDGSIs-BYCCylzs0MbHdO0s_QDxAg",
   }
 };
 
@@ -49,19 +49,9 @@ export default function RootLayout({
 
       <GoogleAnalytics gaId="G-75KEW87W9H" />
 
-      {/* <!-- Google tag (gtag.js) --> */}
-      {/* <Script async src="https://www.googletagmanager.com/gtag/js?id=G-75KEW87W9H"></Script>
-      <Script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-75KEW87W9H');
-      </Script> */}
-
       <Analytics />
       <body className={inter.className + ' bg-black/90'}>
-        <main className="h-dvh"> 
+        <main className="h-dvh">
           <Nav />
 
           <div className="flex min-h-[calc(100dvh-64px)] relative">

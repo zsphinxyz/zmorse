@@ -1,32 +1,27 @@
 'use client'
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { all, all_rev } from '@/lib/morse'
 import Footer from "@/components/Footer";
-import { RxResume } from "react-icons/rx";
+import { MorseAudio } from "@/lib/sound";
+import { BiPause, BiPlay } from "react-icons/bi";
+import AudioControls, { useFreq, useSpeed } from "@/components/audioControls";
 
 export default function Convert() {
   const [words, setWords] = useState('');
   const [morse, setMorse] = useState('');
-  const [reverse, setReverse] = useState(false)
+  const [reverse, setReverse] = useState(false);
+  const [isAudioPlaying, setAudioPlaying] = useState(false);
+  const [play, setPlay] = useState(false);
 
-  // useEffect(()=>{
-  //   setMorse(
-  //     words.split('').map(word => (
-  //       // @ts-ignore
-  //       all[word.toUpperCase()]
-  //     )).toLocaleString().replaceAll(',', ' ')
-  //   )
-  // }, [words])
+  const audioRef = useRef<MorseAudio | null>(null);
+  const {freq} = useFreq();
+  const {speed} = useSpeed();
 
-
-  // useEffect(()=>{
-  //   setWords(
-  //     morse.split(' ').map(code => (
-  //       // @ts-ignore
-  //       all_rev[code]
-  //     )).toString().replaceAll(',', '')
-  //   )
-  // }, [morse])
+  useEffect(() => {
+    if(play) {
+      audioRef.current = new MorseAudio(freq, speed);
+    }
+  }, [play, freq, speed])
 
   useEffect(() => {
     reverse ?
@@ -34,30 +29,58 @@ export default function Convert() {
         morse.split(' ').map(code => (
           // @ts-ignore
           all_rev[code]
-        )).toString().replaceAll(',', '')
+        )).join("")
       )
       :
       setMorse(
         words.split('').map(word => (
           // @ts-ignore
           all[word.toUpperCase()]
-        )).toLocaleString().replaceAll(',', ' ')
-      )
+        )).join(" ")
+      );
   }, [words, morse, reverse])
+
+  function playAudio(morse: string) {
+    if(morse) {
+      audioRef.current?.adx.resume()
+      audioRef.current?.playMorseString(morse).then(() => setAudioPlaying(false))
+      setAudioPlaying(true)
+    }
+  }
+
+  function handleReverse(b:boolean) {
+    setReverse(b)
+    !play && setPlay(true)
+  }
+
+  // function stopAudio() {
+  //   audioRef.current?.stopAudio()
+  //   setAudioPlaying(false)
+  // }
 
   return (
     <section className="flex h-full gap-2 flex-col p-2 relative text-green-50">
       <h1 className="font-bold text-3xl text-center my-2 underline underline-offset-4 mb-5">Converter</h1>
-      <div className="bg-[darkslateblue] basis-1/2 rounded-lg ">
-        <textarea placeholder="Text..." spellCheck="false" className="h-full w-full bg-transparent text-2xl p-2 font-mono resize-none uppercase" onFocus={() => setReverse(false)} onChange={(e) => setWords(e.target.value.replaceAll(' ',''))} value={words}></textarea>
+      <AudioControls />
+      <div className="bg-[darkslateblue] basis-1/2 rounded-lg -mb-5">
+        <textarea placeholder="Text..." spellCheck="false" className="h-full w-full bg-transparent text-2xl p-2 font-mono resize-none uppercase" onFocus={() => handleReverse(false)} onChange={(e) => setWords(e.target.value.replaceAll(' ', ''))} value={words}></textarea>
       </div>
 
-      {/* <button className="size-10 mx-auto bg-green-300 rounded-full -mb-5 z-10 flex items-center justify-center">
-        <RxResume />
-      </button> */}
+      <div className="size-10 mx-auto bg-green-500 hover:bg-green-600 transition-colors rounded-full -mb-5 z-10 flex items-center justify-center">
+        {
+          isAudioPlaying ?
+            <button className="w-full text-center h-full">
+              <BiPause className="mx-auto text-xl"/>
+            </button>
+            :
+            <button onClick={() => playAudio(morse)} className="w-full text-center h-full">
+              <BiPlay className="mx-auto text-xl"/>
+            </button>
+        }
+      </div>
 
       <div className="bg-[darkslateblue] basis-1/2 rounded-lg ">
-        <textarea placeholder="Morse Code..." spellCheck="false" className="h-full w-full bg-transparent text-xl p-2 font-mono resize-none" onFocus={() => setReverse(true)} onChange={(e) => setMorse(e.target.value.replace(/[^-. ]/g, '')?.toString())} value={morse}></textarea>
+        <textarea placeholder="Morse Code..." spellCheck="false" className="h-full w-full bg-transparent text-xl p-2 font-mono resize-none" onFocus={() => handleReverse(true)} onChange={(e) => setMorse(e.target.value.replace(/[^-. ]/g, '')?.toString())} value={morse}></textarea>
       </div>
 
       <Footer />
