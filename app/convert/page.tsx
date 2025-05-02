@@ -1,4 +1,5 @@
 'use client'
+
 import { useEffect, useRef, useState } from "react"
 import { all, all_rev } from '@/lib/morse'
 import Footer from "@/components/Footer";
@@ -58,10 +59,16 @@ export default function Convert() {
   //   setAudioPlaying(false)
   // }
 
+  function downloadAudio() {
+    audioRef.current?.downloadAudio(morse)
+  }
+  
+
   return (
     <section className="flex h-full gap-2 flex-col p-2 relative text-green-50">
       <h1 className="font-bold text-3xl text-center my-2 underline underline-offset-4 mb-5">Converter</h1>
       <AudioControls />
+
       <div className="bg-[darkslateblue] basis-1/2 rounded-lg -mb-5">
         <textarea placeholder="Text..." spellCheck="false" className="h-full w-full bg-transparent text-2xl p-2 font-mono resize-none uppercase" onFocus={() => handleReverse(false)} onChange={(e) => setWords(e.target.value.replaceAll(' ', ''))} value={words}></textarea>
       </div>
@@ -81,6 +88,10 @@ export default function Convert() {
 
       <div className="bg-[darkslateblue] basis-1/2 rounded-lg ">
         <textarea placeholder="Morse Code..." spellCheck="false" className="h-full w-full bg-transparent text-xl p-2 font-mono resize-none" onFocus={() => handleReverse(true)} onChange={(e) => setMorse(e.target.value.replace(/[^-. ]/g, '')?.toString())} value={morse}></textarea>
+      </div>
+
+      <div className="">
+        <button onClick={downloadAudio} disabled={!!!morse} className="disabled:opacity-50 mx-auto block bg-blue-500 hover:bg-blue-600 text-white px-2 py-0.5 rounded-sm">Download Audio</button>
       </div>
 
       <Footer />

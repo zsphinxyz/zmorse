@@ -10,15 +10,15 @@ const inter = Rambla({ subsets: ["latin"], weight: ["400"] });
 
 export const metadata: Metadata = {
   title: "Morse Code",
-  description: "Play around with Morse Code.",
+  description: "Learn and Play around with Morse Code.",
   generator: 'Next.js',
-  applicationName: 'Next.js',
+  applicationName: 'zmorse',
   referrer: 'origin-when-cross-origin',
-  keywords: ['morse', 'zmorse', 'MorseCode', 'zmorse.vercel.app', 'z morse', 'morsecode', 'morse code', 'z morse code', 'zmorse vercel', 'vercel', 'zmorsecode', '--..morse', '--..'],
+  keywords: ['morse', 'zmorse', 'MorseCode', 'zmorse.vercel.app', 'z morse', 'morsecode', 'morse code', 'z morse code', 'zmorse vercel', 'vercel', 'zmorsecode', '--..morse', '--..', 'morse quiz', 'morse learn'],
   creator: 'zsphinx',
   openGraph: {
     title: 'zmorse',
-    description: 'Play around with Morse Code',
+    description: 'Learn and Play around with Morse Code',
     url: 'https://zmorse.vercel.app',
     siteName: 'zmorse',
     // images: 'https://zmorse.vercel.app/thumbnail.png',

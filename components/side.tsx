@@ -6,8 +6,6 @@ import { TbLetterA } from "react-icons/tb";
 import { FaRegDotCircle, FaExchangeAlt, FaScroll } from "react-icons/fa";
 import { GiGraduateCap } from "react-icons/gi";
 import { BsAlphabetUppercase } from "react-icons/bs";
-import { BiHistory } from "react-icons/bi";
-import { LiaSith } from "react-icons/lia";
 
 const links = [
   {
