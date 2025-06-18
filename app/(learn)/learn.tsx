@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import { all, letter_imgs } from '@/lib/morse'
 import { MorseAudio } from '@/lib/sound';
 import { motion } from "framer-motion";
-import { useEffect, useState, useRef, useContext } from 'react';
+import { useEffect, useState, useRef} from 'react';
 import { BsPlayFill } from 'react-icons/bs';
 
 export default function Learn() {
@@ -64,7 +64,7 @@ export default function Learn() {
                   draggable={false}
                   src={`/imgs/${img.img}`}
                   width={500} height={500}
-                  alt={img.img.replace('.png', '')}
+                  alt={`Morse Code Letter ${img.img[0]} . ${img.img.replace('.png', '')}`}
                   className={`
                   ${img.steps == 2 ? "hover:ani2" : img.steps == 3 ? "hover:ani3" : img.steps == 4 ? "hover:ani4" : img.steps == 5 ? "hover:ani5" : ""} 
                   rounded-md select-none overflow-hidden size-[150px] group-hover:scale-105 object-cover transition-transform bg-[#ef4136]

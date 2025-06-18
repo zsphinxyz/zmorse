@@ -1,6 +1,13 @@
 import Footer from '@/components/Footer'
 import GuessMorse from '@/components/guessMorse'
+import { Metadata } from 'next'
 import React from 'react'
+
+export const metadata:Metadata = {
+  title: "Guess the Morse Code",
+  description: "Guess the Morse Code from letter.",
+  keywords: ["guessMorse", "guess Morse Code", "Morse Code Guessing Game", "Morse Code Guess"]
+}
 
 export default function page() {
 

@@ -1,5 +1,6 @@
+import { Metadata } from "next";
 
-export const metadata = {
+export const metadata:Metadata = {
   title: "Morse to Text to Audio",
   description: "Morse to Text to Audio Converter",
   applicationName: 'zmorse',

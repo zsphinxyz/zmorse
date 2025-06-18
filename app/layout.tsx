@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   generator: 'Next.js',
   applicationName: 'zmorse',
   referrer: 'origin-when-cross-origin',
-  keywords: ['morse', 'zmorse', 'MorseCode', 'zmorse.vercel.app', 'z morse', 'morsecode', 'morse code', 'z morse code', 'zmorse vercel', 'vercel', 'zmorsecode', '--..morse', '--..', 'morse quiz', 'morse learn'],
+  keywords: ['morse', 'zmorse', 'MorseCode', 'zmorse.vercel.app', 'z morse', 'morsecode', 'morse code', 'z morse code', 'zmorse vercel', 'vercel', 'zmorsecode', '--..morse', '--..', 'morse quiz', 'morse learn', 'learn morse code'],
   creator: 'zsphinx',
   openGraph: {
     title: 'zmorse',
@@ -55,6 +55,7 @@ export default function RootLayout({
           <Nav />
 
           <div className="flex min-h-[calc(100dvh-64px)] relative">
+            <p className="sr-only">Learn Morse Code with animated pictures. Morse Code Guessing game. Morse Code to Text to Audio converter.</p>
             <SideBar />
             <div className="basis-full">
               {children}

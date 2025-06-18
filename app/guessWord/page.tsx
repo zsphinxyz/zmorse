@@ -1,8 +1,16 @@
 import Footer from "@/components/Footer"
 import { morseLetter } from "@/lib/morse"
+import { Metadata } from "next"
 import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
 // https://random-word-api.herokuapp.com/word
+
+
+export const metadata:Metadata = {
+  title: "Guess the Morse Code",
+  description: "Guess Morse Code from the word.",
+  keywords: ["guessMorse", "guess Morse Code", "Morse Code Guessing Game", "Morse Code Guess"]
+}
 
 export default async function GuessWord({searchParams}: {searchParams: {guess: string}}) {
   let isCorrect = false

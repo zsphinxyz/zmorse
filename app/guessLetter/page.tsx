@@ -1,5 +1,12 @@
 import Footer from "@/components/Footer";
 import GuessLetter from "@/components/guessLetter";
+import { Metadata } from "next";
+
+export const metadata:Metadata = {
+  title: "Guess the Letter",
+  description: "Guess the letter from Morse Code.",
+  keywords: ["guessLetter", "guess letter", "Morse Code Guessing Game", "Morse Code Guess"]
+}
 
 export default function Home() {
   return (

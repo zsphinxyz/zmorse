@@ -45,7 +45,6 @@ export default function SideBar() {
   return (
 
     <aside className="basis-1/3 relative shrink-0 max-w-14 sm:max-w-72 bg-[#313131] px-1 sm:px-3 z-50">
-
       <div className="flex flex-col mt-5 min-h-[calc(100dvh-84px)] gap-3 shrink-0 sticky top-0 bottom-0 w-full">
         {
           links.map(link => (
