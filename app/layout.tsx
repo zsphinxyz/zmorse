@@ -10,7 +10,7 @@ const inter = Rambla({ subsets: ["latin"], weight: ["400"] });
 
 export const metadata: Metadata = {
   title: "Morse Code",
-  description: "Learn and Play around with Morse Code.",
+  description: "Learn and Play around with Morse Code. Morse Code Guessing Games and Converter",
   generator: 'Next.js',
   applicationName: 'zmorse',
   referrer: 'origin-when-cross-origin',
