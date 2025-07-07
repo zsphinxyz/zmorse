@@ -1,5 +1,5 @@
 // copied from http://freenet.msp.mn.us/people/calguire/morse.html
-export const morseLetter:any = {
+export const morseLetter:Record<string,string> = {
   'A': '.-',
   'B': '-...',
   'C': '-.-.',
@@ -27,7 +27,7 @@ export const morseLetter:any = {
   'Y': '-.--',
   'Z': '--..',}
 
-export const morseAccent:any = {
+export const morseAccent:Record<string,string> = {
   'Á': '.--.-', // A with acute accent
   'Ä': '.-.-',  // A with diaeresis
   'É': '..-..', // E with acute accent
@@ -36,7 +36,7 @@ export const morseAccent:any = {
   'Ü': '..--',  // U with diaeresis
 }
 
-export const morseNumber:any = {
+export const morseNumber:Record<string,string> = {
   '1': '.----',
   '2': '..---',
   '3': '...--',
@@ -49,7 +49,7 @@ export const morseNumber:any = {
   '0': '-----',
 }
 
-export const morsePunctuation:any = {
+export const morsePunctuation:Record<string,string> = {
   ',': '--..--',  // comma
   '.': '.-.-.-',  // period
   '?': '..--..',  // question mark
@@ -66,10 +66,10 @@ export const morsePunctuation:any = {
 
 export const all = {...morseLetter, ...morseAccent, ...morsePunctuation, ...morseNumber}
 
-let arr:any = Object.entries(all).map(code => code.reverse())
-let ob = {};
+const arr = Object.entries(all).map(code => code.reverse())
+const ob = {};
 
-arr.map( (i:any) => {
+arr.map( (i) => {
  Object.defineProperty(ob, i[0], {value: i[1]})
 })
 

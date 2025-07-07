@@ -18,7 +18,8 @@ export default function GuessLetter() {
     setClient(true);
   }, [])
 
-  function checkAns(e: any) {
+
+  function checkAns(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (userAns != '') {
       if (userAns == randLetter) {

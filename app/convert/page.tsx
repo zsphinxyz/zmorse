@@ -25,20 +25,20 @@ export default function Convert() {
   }, [play, freq, speed])
 
   useEffect(() => {
-    reverse ?
+    if (reverse) {
       setWords(
         morse.split(' ').map(code => (
-          // @ts-ignore
+          // @ts-expect-error gotta fix later
           all_rev[code]
         )).join("")
-      )
-      :
+      );
+    } else {
       setMorse(
         words.split('').map(word => (
-          // @ts-ignore
           all[word.toUpperCase()]
         )).join(" ")
       );
+    }
   }, [words, morse, reverse])
 
   function playAudio(morse: string) {
@@ -51,7 +51,7 @@ export default function Convert() {
 
   function handleReverse(b:boolean) {
     setReverse(b)
-    !play && setPlay(true)
+    if (!play) setPlay(true)
   }
 
   // function stopAudio() {

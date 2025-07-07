@@ -6,6 +6,7 @@ import { create } from 'zustand';
 
 type TFreq = {
   freq: number,
+  // eslint-disable-next-line no-unused-vars
   setFreq: (num: number) => void,
 }
 export const useFreq = create<TFreq>()((set) => ({
@@ -16,6 +17,7 @@ export const useFreq = create<TFreq>()((set) => ({
 
 type TSpeed = {
   speed: number,
+  // eslint-disable-next-line no-unused-vars
   setSpeed: (num: number) => void,
 }
 export const useSpeed = create<TSpeed>()((set) => ({

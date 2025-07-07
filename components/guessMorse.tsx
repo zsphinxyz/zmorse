@@ -19,7 +19,7 @@ export default function GuessMorse() {
     setClient(true);
   }, [])
 
-  function checkAns(e:any) {
+  function checkAns(e:React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if(userAns.includes('-') || userAns.includes('.')) {
       if(userAns == randMorse){
@@ -36,7 +36,7 @@ export default function GuessMorse() {
     setCorrect(null);
     setShowHint(false);
   }
-  console.log(userAns)
+  // console.log(userAns)
 
   return (
     <section className="flex gap-3 flex-col items-center justify-center">

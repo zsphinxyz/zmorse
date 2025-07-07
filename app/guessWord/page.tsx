@@ -12,7 +12,7 @@ export const metadata:Metadata = {
   keywords: ["guessMorse", "guess Morse Code", "Morse Code Guessing Game", "Morse Code Guess"]
 }
 
-export default async function GuessWord({searchParams}: {searchParams: {guess: string}}) {
+export default async function GuessWord({searchParams}: {searchParams: Promise<{guess: string}>}) {
   let isCorrect = false
 
   function converter(word: string) {
@@ -22,7 +22,7 @@ export default async function GuessWord({searchParams}: {searchParams: {guess: s
   const res = await fetch('https://random-word.ryanrk.com/api/en/word/random?length=5', {cache: 'force-cache'})
   const word = await res.json().then(data => data[0])
 
-  const guessWord = searchParams.guess
+  const guessWord = (await searchParams).guess
 
   // console.log(word, converter(word))
   // console.log(guessWord)
