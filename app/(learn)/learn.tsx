@@ -1,7 +1,6 @@
 'use client'
 
 import AudioControls, { useFreq, useSpeed } from '@/components/audioControls';
-import Footer from '@/components/Footer';
 import { all, letter_imgs } from '@/lib/morse'
 import { MorseAudio } from '@/lib/sound';
 import { motion } from "framer-motion";
@@ -86,8 +85,6 @@ export default function Learn() {
             ))
           }
         </section>
-
-        <Footer />
       </section>
   )
 }

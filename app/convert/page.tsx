@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react"
 import { all, all_rev } from '@/lib/morse'
-import Footer from "@/components/Footer";
 import { MorseAudio } from "@/lib/sound";
 import { BiPause, BiPlay } from "react-icons/bi";
 import AudioControls, { useFreq, useSpeed } from "@/components/audioControls";
@@ -65,7 +64,7 @@ export default function Convert() {
   
 
   return (
-    <section className="flex h-full gap-2 flex-col p-2 relative text-green-50">
+    <section className="flex h-full gap-2 flex-col relative text-green-50">
       <h1 className="font-bold text-3xl text-center my-2 underline underline-offset-4 mb-5">Converter</h1>
       <AudioControls />
 
@@ -93,8 +92,6 @@ export default function Convert() {
       <div className="">
         <button onClick={downloadAudio} disabled={!!!morse} className="disabled:opacity-50 mx-auto block bg-blue-500 hover:bg-blue-600 text-white px-2 py-0.5 rounded-sm">Download Audio</button>
       </div>
-
-      <Footer />
 
     </section>
   )

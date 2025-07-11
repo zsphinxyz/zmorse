@@ -1,4 +1,3 @@
-import Footer from "@/components/Footer"
 import { morseLetter } from "@/lib/morse"
 import { Metadata } from "next"
 import { revalidatePath } from "next/cache"
@@ -44,7 +43,7 @@ export default async function GuessWord({searchParams}: {searchParams: Promise<{
   }
 
   return (
-    <main className="flex w-full p-2 items-center flex-col bg-[#553054] bg-clip-content h-full">
+    <main className="flex w-full items-center flex-col bg-[#553054] h-full">
       <h1 className="font-bold text-3xl text-center mt-7 mb-4 underline underline-offset-4">Guess the word</h1>
       
       <div className="my-5">
@@ -98,10 +97,6 @@ export default async function GuessWord({searchParams}: {searchParams: Promise<{
      <form action={skip}>
       <button className="mt-2 text-blue-400 underline">Skip</button>
      </form>
-
-     
-    <Footer />
-     
     </main>
   )
 }

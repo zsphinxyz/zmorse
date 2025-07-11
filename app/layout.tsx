@@ -5,6 +5,7 @@ import SideBar from "@/components/side";
 import Nav from "@/components/nav";
 import { Analytics } from "@vercel/analytics/react";
 import { GoogleAnalytics } from '@next/third-parties/google'
+import Footer from "@/components/Footer";
 
 const inter = Rambla({ subsets: ["latin"], weight: ["400"] });
 
@@ -51,17 +52,19 @@ export default function RootLayout({
 
       <Analytics />
       <body className={inter.className + ' bg-black/90'}>
-        <main className="h-dvh">
+        <main className="min-h-dvh">
           <Nav />
 
           <div className="flex min-h-[calc(100dvh-64px)] relative">
-            <p className="sr-only">Learn Morse Code with animated pictures. Morse Code Guessing game. Morse Code to Text to Audio converter.</p>
+            <p className="sr-only">Learn Morse Code with animated pictures. Morse Code Guessing games. Morse Code to Text to Audio converter.</p>
             <SideBar />
-            <div className="basis-full">
-              {children}
+            <div className="basis-full flex flex-col px-2 pt-2">
+              <div className="basis-full pb-2">
+                {children}
+              </div>
+              <Footer />
             </div>
           </div>
-
         </main>
       </body>
     </html>
