@@ -6,6 +6,7 @@ import Nav from "@/components/nav";
 import { Analytics } from "@vercel/analytics/react";
 import { GoogleAnalytics } from '@next/third-parties/google'
 import Footer from "@/components/Footer";
+import Script from "next/script";
 
 const inter = Rambla({ subsets: ["latin"], weight: ["400"] });
 
@@ -48,9 +49,15 @@ export default function RootLayout({
   return (
     <html lang="en">
 
+      {/* Google */}
       <GoogleAnalytics gaId="G-75KEW87W9H" />
 
+      {/* Vercel */}
       <Analytics />
+
+      {/* Cloudflare */}
+      <Script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "7bb98ae9a7f14beeb0f4e52c32aad7e1"}'></Script>
+
       <body className={inter.className + ' bg-black/90'}>
         <main className="min-h-dvh">
           <Nav />
