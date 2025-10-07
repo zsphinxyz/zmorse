@@ -19,6 +19,7 @@
 # cloudflare workers
 /.wrangler
 /.open-next
+/.vs
 
 # misc
 .DS_Store

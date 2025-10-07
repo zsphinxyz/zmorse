@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react'
 import Hint from './hint';
 import { FiVolume1 } from 'react-icons/fi';
 import { MorseAudio } from '@/lib/sound';
-import AudioControls, { useFreq, useSpeed } from './audioControls';
+import { useFreq, useSpeed } from './audioControls';
 
 export default function GuessLetter() {
 
@@ -59,13 +59,10 @@ export default function GuessLetter() {
   return (
     <section className="flex gap-3 flex-col items-center justify-center max-w-screen-lg mx-auto">
       <h1 className="font-bold text-3xl text-center my-2 underline underline-offset-4 mb-2">Guess the Letter</h1>
-      <div className="w-full pl-2 mb-2">
-        <AudioControls />
-      </div>
       <form className="flex flex-col gap-3" autoComplete='off' onSubmit={checkAns}>
         <div className="flex gap-2 select-none cursor-default font-serif">
-          <div className="relative text-5xl bg-white/10 size-32 rounded-lg grid place-content-center border border-white/15  hover:bg-white/15 transition">
-            <button onClick={() => playAudio(randMorse)} title='Play Audio' type='button' role='button' className="z-10 absolute -top-2 -left-2 bg-white p-1 rounded-full grid place-content-center hover:scale-110 transition-transform">
+          <div role='button' onClick={() => playAudio(randMorse)} className="relative text-5xl bg-white/10 size-32 rounded-lg grid place-content-center border border-white/15  hover:bg-white/15 transition">
+            <button title='Play Audio' type='button' role='button' className="z-10 absolute -top-2 -left-2 bg-white p-1 rounded-full grid place-content-center hover:scale-110 transition-transform">
               <FiVolume1 className='fill-slate-700 text-slate-700 size-5 block mx-auto' />
             </button>
             {client && randMorse}

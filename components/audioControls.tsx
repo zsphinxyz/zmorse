@@ -56,7 +56,7 @@ export default function AudioControls() {
   }
 
   return (
-    <div className="flex shrink-0 gap-2 mt-2">
+    <div className="flex shrink-0 gap-2">
       <label title='Speed' htmlFor="speed" className='bg-white pl-1'>
         <PiSpeedometer className='inline-block text-black' />
         <select value={speed} name="speed" id="speed" className='text-black outline-none border-none'
@@ -81,7 +81,7 @@ export default function AudioControls() {
         </select>
       </label>
 
-      {/* 
+{/*       
         <div className="w-24 ml-2">
           {
             isAudioPlaying ?

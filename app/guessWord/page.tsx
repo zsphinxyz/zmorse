@@ -18,7 +18,9 @@ export default async function GuessWord({searchParams}: {searchParams: Promise<{
     return word.split('').map(letter => morseLetter[letter.toUpperCase()])
   }
   
-  const res = await fetch('https://random-word.ryanrk.com/api/en/word/random?length=5', {cache: 'force-cache'})
+  // const URL = "https://random-word.ryanrk.com/api/en/word/random?length=5"
+  const URL = "https://random-word-api.herokuapp.com/word?length=5"
+  const res = await fetch(URL, {cache: 'force-cache'})
   const word = await res.json().then(data => data[0])
 
   const guessWord = (await searchParams).guess

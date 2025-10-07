@@ -1,14 +1,18 @@
 'use client'
 
-import AudioControls, { useFreq, useSpeed } from '@/components/audioControls';
+import { useFreq, useSpeed } from '@/components/audioControls';
 import { all, letter_imgs } from '@/lib/morse'
 import { MorseAudio } from '@/lib/sound';
 import { motion } from "framer-motion";
 import { useEffect, useState, useRef} from 'react';
-import { BsPlayFill } from 'react-icons/bs';
+import { BiSort } from 'react-icons/bi';
+
+type TSort = "az" | "diff"
 
 export default function Learn() {
   const audioRef = useRef<MorseAudio | null>(null);
+
+  const [sort, setSort] = useState<TSort>("az");
 
   const {freq} = useFreq();
   const {speed} = useSpeed();
@@ -45,14 +49,36 @@ export default function Learn() {
   return (
       <section className="h-full max-w-screen-lg mx-auto">
         <div className="flex justify-between items-start sm:items-center pl-2 flex-col-reverse sm:flex-row">
-          <AudioControls />
+          
+          <label
+            htmlFor="sort"
+            className="shrink-0 mb-2 relative block h-5 w-9 rounded-full transition-colors [-webkit-tap-highlight-color:_transparent] has-checked:bg-green-500"
+          >
+            {/* <input onChange={()=>setSort(!sort)} checked={sort} type="checkbox" id="sort" className="peer sr-only" /> */}
+            <select className='text-black px-1 py-0.5 pl-4' defaultValue="az" onChange={(e) => setSort(e.target.value as TSort)}>
+              <option value="az">A-Z</option>
+              <option value="diff">Difficulty</option>
+            </select>
+
+            <span className="absolute top-1 left-0.5 text-black">
+              <BiSort />
+            </span>
+
+            {/* <span
+              className="absolute inset-y-0 start-0 m-1 size-3 rounded-full bg-slate-200 transition-[inset-inline-start] peer-checked:start-4"
+            ></span> */}
+            {/* <span className='ml-10 w-20 block'>A-Z</span> */}
+          </label>
+
           <p className="text-sm text-right p-2 w-full">Credit: {''}
             <a href="https://morse.withgoogle.com/learn/" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline">https://morse.withgoogle.com/learn/</a>
           </p>
         </div>
         <section className="flex flex-wrap justify-center gap-x-2 gap-y-4 py-2 max-w-screen-lg mx-auto">
           {
-            letter_imgs.map((img) => (
+            letter_imgs
+            .sort((a,b) => sort == "diff" ? a.difficulty - b.difficulty : a.id - b.id  )
+            .map((img) => (
               <div key={img.id}
                 role='button'
                 aria-labelledby='button'
@@ -73,9 +99,9 @@ export default function Learn() {
                     objectPosition: `-${(img.steps - 1) * 150}px`,
                   }}
                 />
-                <div className="absolute  top-1 right-1 opacity-0 group-hover:opacity-70 transition-opacity pointer-events-none">
+                {/* <div className="absolute  top-1 right-1 opacity-0 group-hover:opacity-70 transition-opacity pointer-events-none">
                   <BsPlayFill className='text-white text-xl border rounded-full' />
-                </div>
+                </div> */}
                 <p className="text-center font-mono mt-1">
                   <span className="text-xl font-bold">{img.img[0]}</span>
                   <span className="opacity-80 font-sans">{img.img.replace('.png', '').slice(1)} </span>
