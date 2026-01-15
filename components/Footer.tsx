@@ -1,3 +1,4 @@
+import { BsGithub } from "react-icons/bs";
 
 export default function Footer() {
   return (
@@ -5,8 +6,8 @@ export default function Footer() {
       <span className="opacity-50">
         &copy;{new Date().getFullYear()}; by {' '}
       </span>
-      <a href="https://github.com/zsphinxyz" target="_blank" className="text-blue-400 underline">
-         zsphinx 
+      <a href="https://github.com/zsphinxyz/zmorse" target="_blank" className="text-blue-400 underline">
+         z sphinx <BsGithub className="inline"/>
       </a>
     </div>
   )

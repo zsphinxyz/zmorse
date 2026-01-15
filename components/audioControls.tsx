@@ -31,17 +31,19 @@ export default function AudioControls() {
   const { speed, setSpeed } = useSpeed();
 
   useEffect(() => {
-    const localFreq = window.localStorage.getItem("frequency");
-    const localSpeed = window.localStorage.getItem("speed");
-    if(!localFreq) {
-      window.localStorage.setItem("frequency", freq.toString())
-    }
-    if(!localSpeed) {
-      window.localStorage.setItem("speed", speed.toString())
-    }
-    if(localFreq && localSpeed) {
-      setFreq(Number(localFreq))
-      setSpeed(Number(localSpeed))
+    if(typeof window != undefined) {
+      const localFreq = window.localStorage.getItem("frequency") ;
+      const localSpeed = window.localStorage.getItem("speed");
+      if(!localFreq) {
+        window.localStorage.setItem("frequency", freq.toString())
+      }
+      if(!localSpeed) {
+        window.localStorage.setItem("speed", speed.toString())
+      }
+      if(localFreq && localSpeed) {
+        setFreq(Number(localFreq))
+        setSpeed(Number(localSpeed))
+      }
     }
   }, [freq, speed, setFreq, setSpeed])
 

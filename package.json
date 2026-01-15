@@ -21,7 +21,6 @@
     "react-dom": "^19.1.0",
     "react-hook-form": "^7.60.0",
     "react-icons": "^5.5.0",
-    "zmorse": "link:",
     "zustand": "^5.0.6"
   },
   "devDependencies": {
