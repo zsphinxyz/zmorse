@@ -1,80 +1,79 @@
-'use client'
+"use client";
 
-import Link from "next/link"
-import { usePathname } from "next/navigation"
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { AiFillAlert } from "react-icons/ai";
+import { BsAlphabetUppercase } from "react-icons/bs";
 import { FaExchangeAlt, FaRegDotCircle, FaScroll } from "react-icons/fa";
 import { GiGraduateCap } from "react-icons/gi";
-import { BsAlphabetUppercase } from "react-icons/bs";
-import { AiFillAlert } from "react-icons/ai";
 
 const links = [
-  {
-    icon: <GiGraduateCap />,
-    title: "Learn Morse Code",
-    link: '/',
-    bg: '#ef4136',
-  },
-  {
-    icon: <FaRegDotCircle />,
-    title: "Guessr",
-    link: "/guessr",
-    bg: "#334155"
-  },
-  {
-    icon: <BsAlphabetUppercase />,
-    title: "Guess the Word",
-    link: '/guessWord',
-    bg: '#553054',
-  },
-  {
-    icon: <AiFillAlert />,
-    title: "Simulator",
-    link: '/simulator',
-    bg: '#1e3f44',
-  },
-  {
-    icon: <FaExchangeAlt />,
-    title: "Converter",
-    link: '/convert',
-    bg: 'darkslateblue'
-  }
-]
-
+	{
+		icon: <GiGraduateCap />,
+		title: "Learn Morse Code",
+		link: "/",
+		bg: "#ef4136",
+	},
+	{
+		icon: <FaRegDotCircle />,
+		title: "Guessr",
+		link: "/guessr",
+		bg: "#334155",
+	},
+	{
+		icon: <BsAlphabetUppercase />,
+		title: "Guess the Word",
+		link: "/guessWord",
+		bg: "#553054",
+	},
+	{
+		icon: <AiFillAlert />,
+		title: "Simulator",
+		link: "/simulator",
+		bg: "#1e3f44",
+	},
+	{
+		icon: <FaExchangeAlt />,
+		title: "Converter",
+		link: "/convert",
+		bg: "darkslateblue",
+	},
+];
 
 export default function SideBar() {
-  const path = usePathname();
-  return (
+	const path = usePathname();
+	return (
+		<aside className="basis-1/3 relative shrink-0 max-w-14 sm:max-w-72 bg-[#313131] px-1 sm:px-3 z-50">
+			<div className="flex flex-col mt-5 min-h-[calc(100dvh-84px)] gap-3 shrink-0 sticky top-0 bottom-0 w-full">
+				{links.map((link) => (
+					<Link
+						title={link.title}
+						key={link.link}
+						href={link.link}
+						className="flex hover:scale-110 sm:hover:scale-105 transition group justify-center py-2 rounded-md items-center sm:justify-start sm:pl-2 gap-2 relative "
+						style={{ background: path === link.link ? link.bg : "#0a0a0a" }}
+					>
+						{link.icon}
+						<span className="hidden sm:block">{link.title}</span>
+						<span className="hidden group-hover:flex transition delay-1000 items-center sm:scale-0 absolute h-full px-1 left-[calc(100%+5px)] w-max rounded-md bg-neutral-200 text-black text-xs font-medium top-1/2 -translate-y-1/2 ">
+							{link.title}
+						</span>
+					</Link>
+				))}
 
-    <aside className="basis-1/3 relative shrink-0 max-w-14 sm:max-w-72 bg-[#313131] px-1 sm:px-3 z-50">
-      <div className="flex flex-col mt-5 min-h-[calc(100dvh-84px)] gap-3 shrink-0 sticky top-0 bottom-0 w-full">
-        {
-          links.map(link => (
-            <Link title={link.title} key={link.link} href={link.link}
-              className="flex hover:scale-110 sm:hover:scale-105 transition group justify-center py-2 rounded-md items-center sm:justify-start sm:pl-2 gap-2 relative "
-              style={{ background: path == link.link ? link.bg : '#0a0a0a' }}
-            >
-              {link.icon}
-              <span className="hidden sm:block">{link.title}</span>
-              <span className="hidden group-hover:flex transition delay-1000 items-center sm:scale-0 absolute h-full px-1 left-[calc(100%+5px)] w-max rounded-md bg-neutral-200 text-black text-xs font-medium top-1/2 -translate-y-1/2 ">
-                {link.title}
-              </span>
-            </Link>
-          ))
-        }
-
-        <Link title="Features" href="/features"
-          className="flex mt-auto mb-5 hover:scale-110 sm:hover:scale-105 transition group justify-center py-2 rounded-md items-center sm:justify-start sm:pl-2 gap-2 "
-          style={{ background: path == "/features" ? '#202020' : '#0a0a0a' }}
-        >
-          <FaScroll />
-          <span className="hidden sm:block">Features</span>
-          <span className="hidden group-hover:flex transition delay-1000 items-center sm:scale-0 absolute h-full px-1 left-[calc(100%+5px)] w-max rounded-md bg-neutral-200 text-black text-xs font-medium top-1/2 -translate-y-1/2 ">
-            Features
-          </span>
-        </Link>
-      </div>
-
-    </aside>
-
-  )
+				<Link
+					title="Features"
+					href="/features"
+					className="flex mt-auto mb-5 hover:scale-110 sm:hover:scale-105 transition group justify-center py-2 rounded-md items-center sm:justify-start sm:pl-2 gap-2 "
+					style={{ background: path === "/features" ? "#202020" : "#0a0a0a" }}
+				>
+					<FaScroll />
+					<span className="hidden sm:block">Features</span>
+					<span className="hidden group-hover:flex transition delay-1000 items-center sm:scale-0 absolute h-full px-1 left-[calc(100%+5px)] w-max rounded-md bg-neutral-200 text-black text-xs font-medium top-1/2 -translate-y-1/2 ">
+						Features
+					</span>
+				</Link>
+			</div>
+		</aside>
+	);
 }

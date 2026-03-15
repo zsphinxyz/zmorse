@@ -1,5 +1,5 @@
 name: Zmorse CI
-on: 
+on:
   push:
     branches: ["master"]
 
@@ -22,22 +22,26 @@ jobs:
       - name: Install pnpm
         run: npm install -g pnpm
 
+      - name: Setup Biome
+        uses: biomejs/setup-biome@v2
+        with:
+          version: latest
+      - name: Run Biome
+        run: biome ci .
+
       - name: Verify Node.js and pnpm versions
         run: |
-              node --version
-              pnpm --version
+          node --version
+          pnpm --version
 
       - name: Clear pnpm and build caches
         run: |
-              pnpm store prune
-              rm -rf .next
-              rm -rf build
+          pnpm store prune
+          rm -rf .next
+          rm -rf build
 
       - name: Install dependencies
         run: pnpm install
-      
-      - name: Run ESLint
-        run: pnpm run lint
 
       - name: Build project
         run: pnpm run build
