@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/complexity/useLiteralKeys: <SEO provided by doc> */
 import type { Metadata } from "next";
 import { Rambla } from "next/font/google";
 import "./globals.css";
@@ -76,7 +77,7 @@ export default function RootLayout({
 				data-cf-beacon='{"token": "7bb98ae9a7f14beeb0f4e52c32aad7e1"}'
 			></Script>
 
-			<body className={inter.className + " bg-black/90"}>
+			<body className={`${inter.className} bg-black/90`}>
 				<main className="min-h-dvh">
 					<Nav />
 

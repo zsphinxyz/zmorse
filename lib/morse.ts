@@ -1,6 +1,6 @@
 // copied from http://freenet.msp.mn.us/people/calguire/morse.html
 export const morseLetter: Record<string, string> = {
-	A: ".-", 	// i ∸ ¡ ⅰ
+	A: ".-", // i ∸ ¡ ⅰ
 	B: "-...", // ⎓                *
 	C: "-.-.", // ‼
 	D: "-..", // ∹

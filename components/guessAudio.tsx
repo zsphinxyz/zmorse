@@ -50,6 +50,7 @@ export default function GuessAudio() {
 	function reset() {
 		if (audioIconRef.current) {
 			audioIconRef.current.style.opacity = "0";
+			// biome-ignore lint/style/noNonNullAssertion: <not null for sure>
 			setTimeout(() => (audioIconRef.current!.style.opacity = "1"), 250);
 		}
 		setRand(Math.floor(Math.random() * 26));
