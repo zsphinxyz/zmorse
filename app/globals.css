@@ -50,6 +50,10 @@ body {
     animation: ani5 var(--animation-speed) steps(5) infinite;
   }
 
+  .ani-sprite {
+    animation: sprite var(--animation-speed) steps(var(--steps)) infinite;
+  }
+
   .img-outline {
     @apply outline outline-2 outline-green-500 outline-offset-2;
   }
@@ -80,6 +84,17 @@ body {
     l4-2 0.5s cubic-bezier(0,200,.8,200) infinite;
 }
 
+
+@keyframes sprite {
+  from {
+    object-position: 0px;
+  }
+  to {
+    object-position: calc(-150px * var(--steps));
+  }
+}
+
+
 @keyframes l4-0 {
   0%      {background-position: 0  100%,50% 0   ,100% 0}
   8%,42%  {background-position: 0  0   ,50% 0   ,100% 0}
@@ -93,41 +108,3 @@ body {
 @keyframes l4-2 {
   100% {top:-0.1px}
 }
-
-
-@keyframes ani2 {
-  from {
-    object-position: 0px;
-  }
-  to {
-    object-position: calc(-150px * 2);
-  }
-}
-
-@keyframes ani3 {
-  from {
-    object-position: 0px;
-  }
-  to {
-    object-position: calc(-150px * 3);
-  }
-}
-
-@keyframes ani4 {
-  from {
-    object-position: 0px;
-  }
-  to {
-    object-position: calc(-150px * 4);
-  }
-}
-
-@keyframes ani5 {
-  from {
-    object-position: 0px;
-  }
-  to {
-    object-position: calc(-150px * 5);
-  }
-}
-

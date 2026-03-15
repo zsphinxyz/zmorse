@@ -1,4 +1,4 @@
-# Z MORSE
+# Z MORSE ![zmorse](./app/favicon.ico) 
 
 [![zmorse](./public/thumbnail.png) zmorse.vercel.app](https://zmorse.vercel.app)
 
@@ -18,5 +18,15 @@ pnpm install
 pnpm run dev
 ```
 
+## Features
+  - Learn Morse Code
+  - Play Morse Code Audio
+  - Guessr (morse - letter - audio)
+  - Morse code Simulator
+  - Converter (Morse ⇄ Text)
+  - Download Morse Code Audio
 
-Sprite images are from https://morse.withgoogle.com/learn/
+
+## Credits
+  - https://morse.withgoogle.com/learn/
+  - https://www.learnmorsecode.com/

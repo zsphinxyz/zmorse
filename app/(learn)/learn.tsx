@@ -1,7 +1,7 @@
 'use client'
 
 import { useFreq, useSpeed } from '@/components/audioControls';
-import { all, letter_imgs } from '@/lib/morse'
+import { all, letter_imgs, morseNumber, number_imgs } from '@/lib/morse'
 import { MorseAudio } from '@/lib/sound';
 import { motion } from "framer-motion";
 import { useEffect, useState, useRef} from 'react';
@@ -90,13 +90,10 @@ export default function Learn() {
                   src={`/imgs/${img.img}`}
                   width={500} height={500}
                   alt={`Morse Code Letter ${img.img[0]} . ${img.img.replace('.png', '')}`}
-                  className={`
-                  ${img.steps == 2 ? "hover:ani2" : img.steps == 3 ? "hover:ani3" : img.steps == 4 ? "hover:ani4" : img.steps == 5 ? "hover:ani5" : ""} 
-                  rounded-md select-none overflow-hidden size-[150px] group-hover:scale-105 object-cover transition-transform bg-[#ef4136]
-                  
-                  `}
+                  className="hover:ani-sprite rounded-md select-none overflow-hidden size-[150px] group-hover:scale-105 object-cover transition-transform bg-[#ef4136]"
                   style={{
                     objectPosition: `-${(img.steps - 1) * 150}px`,
+                    "--steps": img.steps
                   }}
                 />
                 {/* <div className="absolute  top-1 right-1 opacity-0 group-hover:opacity-70 transition-opacity pointer-events-none">
@@ -110,6 +107,41 @@ export default function Learn() {
               </div>
             ))
           }
+        </section>
+
+        <section className="border-t border-white/10 pt-5 mt-5">
+        <h1 className="text-2xl pl-4 font-bold">Numbers</h1>
+          <div className="flex flex-wrap justify-center gap-x-2 gap-y-4 py-2 max-w-screen-lg mx-auto">
+            {
+              Object.values(morseNumber).map((morse, i) => (
+                <div key={morse}
+                role='button'
+                aria-labelledby='button'
+                onClick={() => playMorse(morse)}
+                className='relative group cursor-pointer'
+              >
+                <motion.img
+                  draggable={false}
+                  src={`/imgs/${number_imgs[i]}.png`}
+                  width={500} height={500}
+                  alt={`Morse Code Letter ${morse}`}
+                  className="hover:ani-sprite rounded-md select-none overflow-hidden size-[150px] group-hover:scale-105 object-cover transition-transform bg-[#ef4136]"
+                  style={{
+                    objectPosition: `-${5 * 150}px`,
+                    "--steps": 6
+                  }}
+                />
+                {/* <div className="absolute  top-1 right-1 opacity-0 group-hover:opacity-70 transition-opacity pointer-events-none">
+                  <BsPlayFill className='text-white text-xl border rounded-full' />
+                </div> */}
+                <p className="text-center font-mono mt-1">
+                  <span className="opacity-80 font-sans">{number_imgs[i]} </span>
+                  <span className="bg-white/10 px-1 rounded-sm text-white font-bold tracking-tighter">{morse}</span>
+                </p>
+              </div>
+              ))
+            }
+          </div>
         </section>
       </section>
   )

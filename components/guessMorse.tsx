@@ -30,7 +30,7 @@ export default function GuessMorse() {
     }
   } 
 
-  function nextQuest() {
+  function reset() {
     setRand(Math.floor(Math.random() * 26));
     setUserAns('');
     setCorrect(null);
@@ -40,7 +40,7 @@ export default function GuessMorse() {
 
   return (
     <section className="flex gap-3 flex-col items-center justify-center">
-      <h1 className="font-bold text-3xl text-center my-2 underline underline-offset-4 mb-5">Guess the Morse Code</h1>
+      <h1 className="font-bold text-3xl text-center my-2 underline underline-offset-4 mb-2">Guess the Morse Code</h1>
 
       {/* Key Remapping  */}
       {/* <div className="w-full flex justify-end ">
@@ -72,7 +72,7 @@ export default function GuessMorse() {
 
       {
         isCorrect ? 
-          <button className='bg-white/90 hover:bg-white p-2 rounded-sm text-black' onClick={nextQuest}>Next ▶</button> :
+          <button className='bg-white/90 hover:bg-white p-2 rounded-sm text-black' onClick={reset}>Next ▶</button> :
           <button type="submit" className='bg-white/90 font-medium hover:bg-white text-black p-2 rounded-sm disabled:opacity-50 disabled:cursor-not-allowed'>Submit</button>
       }
 

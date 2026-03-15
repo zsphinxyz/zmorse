@@ -40,6 +40,7 @@ export const morseAccent:Record<string,string> = {
 
 
 export const morseNumber:Record<string,string> = {
+  '0': '-----',
   '1': '.----',
   '2': '..---',
   '3': '...--',
@@ -49,7 +50,6 @@ export const morseNumber:Record<string,string> = {
   '7': '--...',
   '8': '---..',
   '9': '----.',
-  '0': '-----',
 }
 
 export const morsePunctuation:Record<string,string> = {
@@ -104,6 +104,18 @@ export const letter_imgs = [
   { id: 23, img: 'Wand.png', steps: 4, difficulty: 14 },      
   { id: 24, img: 'X-ray.png', steps: 5, difficulty: 22 },     
   { id: 25, img: 'Yard.png', steps: 5, difficulty: 21 },      
-  { id: 26, img: 'Zebra.png', steps: 5, difficulty: 23 }
+  { id: 26, img: 'Zebra.png', steps: 5, difficulty: 23 },
 ]
 
+export const number_imgs = [
+  "Zero",
+  "One",
+  "Two",
+  "Three",
+  "Four",
+  "Five",
+  "Six",
+  "Seven",
+  "Eight",
+  "Nine"
+]

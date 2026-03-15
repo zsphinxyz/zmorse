@@ -2,10 +2,10 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { TbLetterA } from "react-icons/tb";
-import { FaRegDotCircle, FaExchangeAlt, FaScroll } from "react-icons/fa";
+import { FaExchangeAlt, FaRegDotCircle, FaScroll } from "react-icons/fa";
 import { GiGraduateCap } from "react-icons/gi";
 import { BsAlphabetUppercase } from "react-icons/bs";
+import { AiFillAlert } from "react-icons/ai";
 
 const links = [
   {
@@ -15,21 +15,22 @@ const links = [
     bg: '#ef4136',
   },
   {
-    icon: <TbLetterA />,
-    title: "Guess the Letter",
-    link: '/guessLetter',
-    bg: '#334155',
-  }, {
     icon: <FaRegDotCircle />,
-    title: "Guess the Morse",
-    link: '/guessMorse',
-    bg: '#425554',
+    title: "Guessr",
+    link: "/guessr",
+    bg: "#334155"
   },
   {
     icon: <BsAlphabetUppercase />,
     title: "Guess the Word",
     link: '/guessWord',
     bg: '#553054',
+  },
+  {
+    icon: <AiFillAlert />,
+    title: "Simulator",
+    link: '/simulator',
+    bg: '#1e3f44',
   },
   {
     icon: <FaExchangeAlt />,

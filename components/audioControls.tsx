@@ -5,6 +5,7 @@ import { PiSpeedometer, PiWaveSineBold } from 'react-icons/pi';
 import { create } from 'zustand';
 
 type TFreq = {
+  /** 500, 700, 900 */
   freq: number,
   // eslint-disable-next-line no-unused-vars
   setFreq: (num: number) => void,
@@ -16,6 +17,7 @@ export const useFreq = create<TFreq>()((set) => ({
 
 
 type TSpeed = {
+   /** 150, 100, 50 */
   speed: number,
   // eslint-disable-next-line no-unused-vars
   setSpeed: (num: number) => void,

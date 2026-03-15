@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   generator: 'Next.js',
   applicationName: 'zmorse',
   referrer: 'origin-when-cross-origin',
-  keywords: ['morse', 'zmorse', 'MorseCode', 'zmorse.vercel.app', 'z morse', 'morsecode', 'morse code', 'z morse code', 'zmorse vercel', 'vercel', 'zmorsecode', '--..morse', '--..', 'morse quiz', 'morse learn', 'learn morse code'],
+  keywords: ['morse', 'zmorse', 'MorseCode', 'z morse', 'morsecode', 'vercel', 'zmorsecode', '--..morse', '--..', 'morse quiz', 'morse learn', 'learn morse code', 'morse code simulator', 'morse code guessr'],
   creator: 'zsphinx',
   openGraph: {
     title: 'zmorse',

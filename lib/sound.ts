@@ -37,11 +37,11 @@ export class MorseAudio {
   }
 
   play() {
-    this.gain.gain.setTargetAtTime(0.2, 0, 0.001)
+    this.gain.gain.setTargetAtTime(0.2, 0, 0.001);
   }
 
   end() {
-    this.gain.gain.setTargetAtTime(0, 0, 0.001)
+    this.gain.gain.setTargetAtTime(0, 0, 0.001);
   }
 
   async pauseTime(ms:number) {

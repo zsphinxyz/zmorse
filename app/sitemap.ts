@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: 'https://zmorse.vercel.app/guessMorse',
       lastModified: new Date('11,Jul,2025'),
       changeFrequency: 'monthly',
-      priority: 0.8,
+      priority: 0.5,
     },
     {
       url: 'https://zmorse.vercel.app/guessLetter',
@@ -24,7 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: 'https://zmorse.vercel.app/guessWord',
       lastModified: new Date('11,Jul,2025'),
       changeFrequency: 'monthly',
-      priority: 0.8,
+      priority: 0.5,
     },
     {
       url: 'https://zmorse.vercel.app/convert',
@@ -32,5 +32,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.9,
     },
+    {
+      url: "https://zmorse.vercel.app/guessr",
+      lastModified: new Date('15,Mar,2025'),
+      priority: 0.9,
+    }
   ]
 }

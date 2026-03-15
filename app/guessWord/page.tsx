@@ -38,12 +38,6 @@ export default async function GuessWord({searchParams}: {searchParams: Promise<{
     redirect('/guessWord')
   }
 
-  async function skip() {
-    'use server'
-    revalidatePath('/guessWord')
-    redirect('/guessWord')
-  }
-
   return (
     <main className="flex w-full items-center flex-col bg-[#553054] h-full">
       <h1 className="font-bold text-3xl text-center mt-7 mb-4 underline underline-offset-4">Guess the word</h1>
@@ -96,7 +90,7 @@ export default async function GuessWord({searchParams}: {searchParams: Promise<{
      </form>
      }
 
-     <form action={skip}>
+     <form action={handleNextWord}>
       <button className="mt-2 text-blue-400 underline">Skip</button>
      </form>
     </main>
