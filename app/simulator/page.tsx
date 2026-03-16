@@ -79,6 +79,7 @@ export default function Page() {
 	// biome-ignore lint/correctness/useExhaustiveDependencies: <prevent rerendering>
 	useEffect(() => {
 		const handleKeyDown = (e: KeyboardEvent) => {
+			e.preventDefault();
 			if (
 				e.code !== key ||
 				e.repeat ||
@@ -89,6 +90,7 @@ export default function Page() {
 		};
 
 		const handleKeyUp = (e: KeyboardEvent) => {
+			e.preventDefault();
 			if (
 				e.code !== key ||
 				e.repeat ||
@@ -100,6 +102,10 @@ export default function Page() {
 
 		window.addEventListener("keydown", handleKeyDown);
 		window.addEventListener("keyup", handleKeyUp);
+
+		// if(touchPad.current) {
+		// 	touchPad.current.addEventListener("pointer")
+		// }
 
 		return () => {
 			window.removeEventListener("keydown", handleKeyDown);
@@ -151,7 +157,7 @@ export default function Page() {
 					<div className="w-full flex justify-between items-center">
 						<div
 							title="Keyboard Key"
-							className="bg-white/10 rounded-sm shadow-black/50 text-sm shadow-sm"
+							className="bg-white/10 rounded-sm shadow-black/50 text-sm shadow-sm relative"
 						>
 							<input
 								type="text"
@@ -160,8 +166,11 @@ export default function Page() {
 								ref={mappedKey}
 								onKeyDown={handleKeyInput}
 								value={key}
-								className="bg-transparent min-w-16 text-center [field-sizing:content] px-2 focus:outline-green-500"
+								className="bg-transparent peer min-w-16 text-center [field-sizing:content] px-2 focus:outline-green-500"
 							/>
+							<span className="absolute shadow-sm shadow-black -top-7 text-sm px-1 rounded-sm left-0 w-max text-black hidden peer-focus-within:block bg-white">
+								Press <kbd>Key</kbd> to assign.
+							</span>
 						</div>
 						<div
 							title="Display"
@@ -170,8 +179,10 @@ export default function Page() {
 						/>
 
 						{/** biome-ignore lint/a11y/useKeyWithClickEvents: <intended for this button> */}
-						{/** biome-ignore lint/a11y/noStaticElementInteractions: <intended for this button> */}
+						{/** biome-ignore lint/a11y/useFocusableInteractive: <unfocusable button> */}
+						{/** biome-ignore lint/a11y/useSemanticElements: <unfocusable button> */}
 						<div
+							role="button"
 							title="Clear"
 							onClick={clearAll}
 							className="bg-white/10 select-none cursor-pointer shadow-black/50 shadow-sm px-2 text-sm rounded-sm active:scale-95"
@@ -183,10 +194,8 @@ export default function Page() {
 					<div className="w-full">
 						<button
 							type="button"
-							onMouseDown={handleDown}
-							onMouseUp={handleUp}
-							onTouchStart={handleDown}
-							onTouchEnd={handleUp}
+							onPointerDown={handleDown}
+							onPointerUp={handleUp}
 							className="bg-gradient-radial block relative select-none text-center from-slate-800 to-slate-900 rounded-lg py-20 w-full max-w-80 mx-auto touch-none border-2 border-neutral-400 [box-shadow:4px_6px_2px_#25252566] active:[box-shadow:1px_1px_0_#25252566] active:scale-[.99] transition-all duration-[25ms]"
 						>
 							<div

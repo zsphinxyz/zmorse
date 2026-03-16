@@ -5,10 +5,12 @@ import { FiVolume1 } from "react-icons/fi";
 import { morseLetter } from "@/lib/morse";
 import { MorseAudio } from "@/lib/sound";
 import { useFreq, useSpeed } from "./audioControls";
+import Hint from "./hint";
 
 export default function GuessAudio() {
 	const [client, setClient] = useState(false);
 	const [userAns, setUserAns] = useState("");
+	const [showHint, setShowHint] = useState(false);
 
 	const [rand, setRand] = useState(Math.floor(Math.random() * 26));
 	const [isCorrect, setCorrect] = useState<null | boolean>(null);
@@ -55,6 +57,7 @@ export default function GuessAudio() {
 		}
 		setRand(Math.floor(Math.random() * 26));
 		setUserAns("");
+		setShowHint(false);
 		setCorrect(null);
 	}
 
@@ -121,6 +124,15 @@ export default function GuessAudio() {
 					</button>
 				)}
 			</form>
+
+			{client && (
+				<Hint
+					rand={rand}
+					hint={showHint}
+					setHint={setShowHint}
+					reverse={false}
+				/>
+			)}
 		</section>
 	);
 }

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { morseLetter } from "@/lib/morse";
-// https://random-word-api.herokuapp.com/word
 
 export const metadata: Metadata = {
 	title: "Guess the Morse Code",
@@ -11,7 +10,7 @@ export const metadata: Metadata = {
 		"guessMorse",
 		"guess Morse Code",
 		"Morse Code Guessing Game",
-		"Morse Code Guess",
+		"Morse Code Guesser",
 	],
 };
 
@@ -26,10 +25,20 @@ export default async function GuessWord({
 		return word.split("").map((letter) => morseLetter[letter.toUpperCase()]);
 	}
 
-	// const URL = "https://random-word.ryanrk.com/api/en/word/random?length=5"
+	// const URL = "https://random-word.ryanrk.com/api/en/word/random?length=5";
+	// const URL = "https://api.datamuse.com/words?sp=?????&max=1";
 	const URL = "https://random-word-api.herokuapp.com/word?length=5";
+
 	const res = await fetch(URL, { cache: "force-cache" });
-	const word = await res.json().then((data) => data[0]);
+	const word = await res
+		.json()
+		.then((data) => data[0])
+		.catch(() =>
+			Array.from(
+				{ length: 5 },
+				(_) => Object.keys(morseLetter)[Math.floor(Math.random() * 26)],
+			).join(""),
+		);
 
 	const guessWord = (await searchParams).guess;
 
@@ -54,7 +63,7 @@ export default async function GuessWord({
 
 			<div className="my-5">
 				<h1 className="text-3xl font-bold text-center">
-					{converter(word).map((letter: string) => (
+					{converter(word).map((letter) => (
 						<span
 							key={`${letter}-${Math.random()}`}
 							className="inline-block m-0.5 bg-black/10 text-sm sm:text-lg lg:text-xl px-2 py-1 font-mono rounded-md"

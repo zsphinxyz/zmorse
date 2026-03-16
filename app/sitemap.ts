@@ -34,7 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 		},
 		{
 			url: "https://zmorse.vercel.app/guessr",
-			lastModified: new Date("15,Mar,2025"),
+			lastModified: new Date("15,Mar,2026"),
 			priority: 0.9,
 		},
 	];
